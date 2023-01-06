@@ -5,22 +5,24 @@ using System.Threading.Tasks;
 
 // ------ LEARNING CODE ADDITION ------
 // Configure a controller to handle HTTP requests to the /api/items route and return a list of items from the database. 
-
-[Route("api/[controller]")]
-[ApiController]
-public class ItemController : ControllerBase
+namespace backend.Controllers
 {
-    private readonly ItemContext _context;
-
-    public ItemController(ItemContext context)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ItemController : ControllerBase
     {
-        _context = context;
-    }
+        private readonly ItemContext _context;
 
-    // GET: api/Item
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Item>>> GetItems()
-    {
-        return await _context.Items.ToListAsync();
+        public ItemController(ItemContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/Item
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Item>>> GetItems()
+        {
+            return await _context.Items.ToListAsync();
+        }
     }
 }
