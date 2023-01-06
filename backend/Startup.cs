@@ -32,6 +32,12 @@ namespace backend
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
             });
+
+            // ------ LEARNING CODE ADDITION ------
+            // Configure the application to use Entity Framework Core with a PostgreSQL database. 
+            services.AddDbContext<ItemContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("ItemConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
