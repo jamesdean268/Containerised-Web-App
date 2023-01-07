@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 // ------ LEARNING CODE ADDITION ------
-// Configure a controller to handle HTTP requests to the /api/items route and return a list of items from the database. 
+// Configure a controller to handle HTTP requests to the /api/Item route and return a list of items from the database. 
 namespace backend.Controllers
 {
     [Route("api/[controller]")]
