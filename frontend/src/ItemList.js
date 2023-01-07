@@ -9,7 +9,7 @@ class ItemList extends React.Component {
   };
 
   componentDidMount() {
-    fetch('api/Item')
+    fetch('http://localhost:5000/api/Item')
       .then(res => res.json())
       .then(items => this.setState({ items }));
   }
