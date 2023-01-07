@@ -17,6 +17,9 @@ namespace backend
 {
     public class Startup
     {
+        // ------ LEARNING CODE ------ Enabling CORS
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        // ------ END LEARNING CODE ------
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,7 +30,16 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            // ------ LEARNING CODE ------ Enabling CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                policy =>
+                                {
+                                    policy.WithOrigins("http://localhost:3000");
+                                });
+            });
+            // ------ END LEARNING CODE ------
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -54,6 +66,10 @@ namespace backend
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // ------ LEARNING CODE ------ Enabling CORS
+            app.UseCors(MyAllowSpecificOrigins);
+            // ------ END LEARNING CODE ------
 
             app.UseAuthorization();
 
