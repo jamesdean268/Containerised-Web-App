@@ -21,11 +21,16 @@ function App() {
           Learn React
         </a>
       </header>
-      }
+      */}
+
       {/* ------ LEARNING CODE ADDITION ------ 
         Render the ItemList below the default React Page App 
       */}
-      <ItemList />
+      {/* <ItemList /> */}
+
+      {/* ------ REACT TUTORIAL CODE ADDITION ------ */}
+      
+
     </div>
   );
 }
